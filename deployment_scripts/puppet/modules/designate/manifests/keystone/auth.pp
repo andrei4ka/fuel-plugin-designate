@@ -103,7 +103,7 @@ class designate::keystone::auth (
   $auth_name           = 'designate',
   $service_name        = undef,
   $service_type        = 'dns',
-  $service_description = 'Openstack DNSaas Service',
+  $service_description = 'Openstack DNSaaS Service',
   $region              = 'RegionOne',
   $tenant              = 'services',
   $configure_endpoint  = true,

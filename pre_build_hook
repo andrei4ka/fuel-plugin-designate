@@ -12,6 +12,6 @@ DESIGNATE_PUPPET_MODULE="${MODULES_PATH}/designate"
 TMP_DIR="${ROOT}"/tmp
 mkdir -p "${DESIGNATE_PUPPET_MODULE}"
 mkdir -p "${TMP_DIR}"
-PUPPET_DESIGNATE_BRANCH="stable/kilo"
+PUPPET_DESIGNATE_BRANCH="stable/mitaka"
 REPO_PATH="https://github.com/openstack/puppet-designate/tarball/${PUPPET_DESIGNATE_BRANCH}"
 wget "$REPO_PATH"  -O - | tar xz --strip-components=1 -C "${DESIGNATE_PUPPET_MODULE}"

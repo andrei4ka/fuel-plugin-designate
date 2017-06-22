@@ -6,7 +6,7 @@
   role: [designate]
   requires: [deploy_start]
   required_for: [deploy_end]
-  tasks: 
+  tasks:
     - fuel_pkgs
     - hiera
     - globals
