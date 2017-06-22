@@ -3,6 +3,7 @@
 
 - id: designate
   type: group
+  version: &task_engine_version 2.0.0
   role: [designate]
   requires: [deploy_start]
   required_for: [deploy_end]
@@ -21,9 +22,10 @@
 
 - id: designate-haproxy
   type: puppet
+  version: *task_engine_version
   groups: ['primary-controller', 'controller']
   required_for: [task-designate, deploy_end]
-  requires: [deploy_start, cluster-haproxy]
+  requires: [deploy_start]
   parameters:
     puppet_manifest: puppet/manifests/haproxy.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
@@ -31,6 +33,7 @@
 
 - id: task-designate-db
   type: puppet
+  version: *task_engine_version
   groups: ['primary-controller', 'controller']
   required_for: [task-designate]
   requires: [database]
@@ -41,6 +44,7 @@
 
 - id: designate-keystone
   type: puppet
+  version: *task_engine_version
   groups: ['primary-controller', 'controller']
   required_for: [task-designate]
   requires: [keystone]
@@ -51,6 +55,7 @@
 
 - id: task-designate
   type: puppet
+  version: *task_engine_version
   groups: [designate]
   required_for: [deploy_end]
   requires: [deploy_start, designate-haproxy, task-designate-db, designate-keystone]
